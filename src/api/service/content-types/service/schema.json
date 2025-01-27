@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "services",
+  "info": {
+    "singularName": "service",
+    "pluralName": "services",
+    "displayName": "Service",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "price": {
+      "type": "biginteger"
+    },
+    "service_usages": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::service-usage.service-usage",
+      "mappedBy": "services"
+    },
+    "note": {
+      "type": "richtext"
+    }
+  }
+}
