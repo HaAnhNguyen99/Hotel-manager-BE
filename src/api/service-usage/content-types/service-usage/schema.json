@@ -29,16 +29,6 @@
     },
     "UsageDate": {
       "type": "datetime"
-    },
-    "img": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": false
     }
   }
 }
