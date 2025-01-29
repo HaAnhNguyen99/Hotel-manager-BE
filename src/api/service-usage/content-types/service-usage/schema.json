@@ -29,6 +29,12 @@
     },
     "UsageDate": {
       "type": "datetime"
+    },
+    "bookings": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::booking.booking",
+      "mappedBy": "service_usages"
     }
   }
 }

@@ -369,6 +369,45 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBookingBooking extends Struct.CollectionTypeSchema {
+  collectionName: 'bookings';
+  info: {
+    displayName: 'Booking';
+    pluralName: 'bookings';
+    singularName: 'booking';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    booking_date: Schema.Attribute.DateTime;
+    checkin: Schema.Attribute.DateTime;
+    checkout: Schema.Attribute.DateTime;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    guest_name: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'V\u00F4 danh'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::booking.booking'
+    > &
+      Schema.Attribute.Private;
+    prepayment: Schema.Attribute.BigInteger;
+    publishedAt: Schema.Attribute.DateTime;
+    reduction: Schema.Attribute.BigInteger;
+    room: Schema.Attribute.Relation<'manyToOne', 'api::room.room'>;
+    service_usages: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::service-usage.service-usage'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHotelHotel extends Struct.CollectionTypeSchema {
   collectionName: 'hotels';
   info: {
@@ -442,6 +481,7 @@ export interface ApiRoomRoom extends Struct.CollectionTypeSchema {
   };
   attributes: {
     after_hour_price: Schema.Attribute.BigInteger;
+    bookings: Schema.Attribute.Relation<'oneToMany', 'api::booking.booking'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -486,6 +526,7 @@ export interface ApiServiceUsageServiceUsage
     draftAndPublish: true;
   };
   attributes: {
+    bookings: Schema.Attribute.Relation<'manyToMany', 'api::booking.booking'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1051,6 +1092,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::booking.booking': ApiBookingBooking;
       'api::hotel.hotel': ApiHotelHotel;
       'api::reservation.reservation': ApiReservationReservation;
       'api::room.room': ApiRoomRoom;

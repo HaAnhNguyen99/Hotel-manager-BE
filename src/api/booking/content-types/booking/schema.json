@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bookings",
+  "info": {
+    "singularName": "booking",
+    "pluralName": "bookings",
+    "displayName": "Booking"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "checkin": {
+      "type": "datetime"
+    },
+    "checkout": {
+      "type": "datetime"
+    },
+    "prepayment": {
+      "type": "biginteger"
+    },
+    "reduction": {
+      "type": "biginteger"
+    },
+    "booking_date": {
+      "type": "datetime"
+    },
+    "room": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::room.room",
+      "inversedBy": "bookings"
+    },
+    "service_usages": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::service-usage.service-usage",
+      "inversedBy": "bookings"
+    },
+    "guest_name": {
+      "type": "string",
+      "default": "Vô danh"
+    }
+  }
+}

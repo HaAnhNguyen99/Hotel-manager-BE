@@ -61,6 +61,12 @@
     },
     "after_hour_price": {
       "type": "biginteger"
+    },
+    "bookings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::booking.booking",
+      "mappedBy": "room"
     }
   }
 }
