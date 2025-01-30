@@ -32,15 +32,15 @@
       "target": "api::room.room",
       "inversedBy": "bookings"
     },
-    "service_usages": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::service-usage.service-usage",
-      "inversedBy": "bookings"
-    },
     "guest_name": {
       "type": "string",
       "default": "Vô danh"
+    },
+    "service_usages": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service-usage.service-usage",
+      "mappedBy": "booking"
     }
   }
 }

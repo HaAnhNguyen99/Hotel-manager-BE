@@ -30,11 +30,11 @@
     "UsageDate": {
       "type": "datetime"
     },
-    "bookings": {
+    "booking": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "manyToOne",
       "target": "api::booking.booking",
-      "mappedBy": "service_usages"
+      "inversedBy": "service_usages"
     }
   }
 }
