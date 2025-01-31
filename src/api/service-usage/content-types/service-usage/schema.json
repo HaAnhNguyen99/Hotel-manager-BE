@@ -18,9 +18,9 @@
       "target": "api::room.room",
       "inversedBy": "service_usages"
     },
-    "services": {
+    "service": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "manyToOne",
       "target": "api::service.service",
       "inversedBy": "service_usages"
     },
@@ -35,6 +35,13 @@
       "relation": "manyToOne",
       "target": "api::booking.booking",
       "inversedBy": "service_usages"
+    },
+    "service_status": {
+      "type": "enumeration",
+      "enum": [
+        "Chưa thanh toán",
+        "Đã thanh toán"
+      ]
     }
   }
 }

@@ -595,7 +595,10 @@ export interface ApiServiceUsageServiceUsage
     publishedAt: Schema.Attribute.DateTime;
     quantity: Schema.Attribute.Integer;
     rooms: Schema.Attribute.Relation<'manyToMany', 'api::room.room'>;
-    services: Schema.Attribute.Relation<'manyToMany', 'api::service.service'>;
+    service: Schema.Attribute.Relation<'manyToOne', 'api::service.service'>;
+    service_status: Schema.Attribute.Enumeration<
+      ['Ch\u01B0a thanh to\u00E1n', '\u0110\u00E3 thanh to\u00E1n']
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -630,7 +633,7 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
     price: Schema.Attribute.BigInteger;
     publishedAt: Schema.Attribute.DateTime;
     service_usages: Schema.Attribute.Relation<
-      'manyToMany',
+      'oneToMany',
       'api::service-usage.service-usage'
     >;
     updatedAt: Schema.Attribute.DateTime;
