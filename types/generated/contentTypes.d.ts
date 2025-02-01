@@ -598,7 +598,8 @@ export interface ApiServiceUsageServiceUsage
     service: Schema.Attribute.Relation<'manyToOne', 'api::service.service'>;
     service_status: Schema.Attribute.Enumeration<
       ['Ch\u01B0a thanh to\u00E1n', '\u0110\u00E3 thanh to\u00E1n']
-    >;
+    > &
+      Schema.Attribute.DefaultTo<'Ch\u01B0a thanh to\u00E1n'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

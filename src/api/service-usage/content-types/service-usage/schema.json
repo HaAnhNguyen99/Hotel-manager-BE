@@ -41,7 +41,8 @@
       "enum": [
         "Chưa thanh toán",
         "Đã thanh toán"
-      ]
+      ],
+      "default": "Chưa thanh toán"
     }
   }
 }
