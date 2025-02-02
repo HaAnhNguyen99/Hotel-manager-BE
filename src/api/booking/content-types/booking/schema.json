@@ -4,7 +4,8 @@
   "info": {
     "singularName": "booking",
     "pluralName": "bookings",
-    "displayName": "Booking"
+    "displayName": "Booking",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -41,6 +42,10 @@
       "relation": "oneToMany",
       "target": "api::service-usage.service-usage",
       "mappedBy": "booking"
+    },
+    "cccd": {
+      "type": "string",
+      "regex": "^\\d+$"
     }
   }
 }

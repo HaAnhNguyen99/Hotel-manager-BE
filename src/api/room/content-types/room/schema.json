@@ -41,12 +41,6 @@
       "target": "api::reservation.reservation",
       "mappedBy": "rooms"
     },
-    "service_usages": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::service-usage.service-usage",
-      "mappedBy": "rooms"
-    },
     "floor": {
       "type": "integer"
     },

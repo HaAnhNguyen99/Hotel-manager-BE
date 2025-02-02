@@ -12,12 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "rooms": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::room.room",
-      "inversedBy": "service_usages"
-    },
     "service": {
       "type": "relation",
       "relation": "manyToOne",

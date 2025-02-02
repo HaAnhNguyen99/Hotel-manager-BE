@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiBookingBooking extends Struct.CollectionTypeSchema {
   collectionName: 'bookings';
   info: {
+    description: '';
     displayName: 'Booking';
     pluralName: 'bookings';
     singularName: 'booking';
@@ -381,6 +382,7 @@ export interface ApiBookingBooking extends Struct.CollectionTypeSchema {
   };
   attributes: {
     booking_date: Schema.Attribute.DateTime;
+    cccd: Schema.Attribute.String;
     checkin: Schema.Attribute.DateTime;
     checkout: Schema.Attribute.DateTime;
     createdAt: Schema.Attribute.DateTime;
@@ -408,35 +410,6 @@ export interface ApiBookingBooking extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
-  collectionName: 'categories';
-  info: {
-    displayName: 'Category';
-    pluralName: 'categories';
-    singularName: 'category';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::category.category'
-    > &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String;
-    posts: Schema.Attribute.Relation<'oneToMany', 'api::post.post'>;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiHotelHotel extends Struct.CollectionTypeSchema {
   collectionName: 'hotels';
   info: {
@@ -458,33 +431,6 @@ export interface ApiHotelHotel extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String;
     phone: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiPostPost extends Struct.CollectionTypeSchema {
-  collectionName: 'posts';
-  info: {
-    displayName: 'Post';
-    pluralName: 'posts';
-    singularName: 'post';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
-    content: Schema.Attribute.Text;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::post.post'> &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -559,10 +505,6 @@ export interface ApiRoomRoom extends Struct.CollectionTypeSchema {
       ['Available', 'Cleaning', 'Occupied']
     > &
       Schema.Attribute.DefaultTo<'Available'>;
-    service_usages: Schema.Attribute.Relation<
-      'manyToMany',
-      'api::service-usage.service-usage'
-    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -594,7 +536,6 @@ export interface ApiServiceUsageServiceUsage
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     quantity: Schema.Attribute.Integer;
-    rooms: Schema.Attribute.Relation<'manyToMany', 'api::room.room'>;
     service: Schema.Attribute.Relation<'manyToOne', 'api::service.service'>;
     service_status: Schema.Attribute.Enumeration<
       ['Ch\u01B0a thanh to\u00E1n', '\u0110\u00E3 thanh to\u00E1n']
@@ -1153,9 +1094,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::booking.booking': ApiBookingBooking;
-      'api::category.category': ApiCategoryCategory;
       'api::hotel.hotel': ApiHotelHotel;
-      'api::post.post': ApiPostPost;
       'api::reservation.reservation': ApiReservationReservation;
       'api::room.room': ApiRoomRoom;
       'api::service-usage.service-usage': ApiServiceUsageServiceUsage;
