@@ -46,6 +46,14 @@
     "cccd": {
       "type": "string",
       "regex": "^\\d+$"
+    },
+    "booking_status": {
+      "type": "enumeration",
+      "enum": [
+        "Confirmed",
+        "Canceled",
+        "Completed"
+      ]
     }
   }
 }
