@@ -383,7 +383,7 @@ export interface ApiBookingBooking extends Struct.CollectionTypeSchema {
   attributes: {
     booking_date: Schema.Attribute.DateTime;
     booking_status: Schema.Attribute.Enumeration<
-      ['Confirmed', 'Canceled', 'Completed']
+      ['Canceled', 'Completed', 'Pending']
     >;
     cccd: Schema.Attribute.String;
     checkin: Schema.Attribute.DateTime;

@@ -50,9 +50,9 @@
     "booking_status": {
       "type": "enumeration",
       "enum": [
-        "Confirmed",
         "Canceled",
-        "Completed"
+        "Completed",
+        "Pending"
       ]
     },
     "type": {
