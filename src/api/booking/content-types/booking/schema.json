@@ -54,6 +54,14 @@
         "Canceled",
         "Completed"
       ]
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Giờ",
+        "Qua Đêm",
+        "Ngày"
+      ]
     }
   }
 }

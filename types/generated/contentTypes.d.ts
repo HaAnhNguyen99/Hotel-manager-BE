@@ -407,6 +407,9 @@ export interface ApiBookingBooking extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::service-usage.service-usage'
     >;
+    type: Schema.Attribute.Enumeration<
+      ['Gi\u1EDD', 'Qua \u0110\u00EAm', 'Ng\u00E0y']
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
