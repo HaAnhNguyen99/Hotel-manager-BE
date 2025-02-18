@@ -12,12 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "rooms": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::room.room",
-      "inversedBy": "payments"
-    },
     "date": {
       "type": "datetime"
     },
@@ -31,8 +25,11 @@
         "banking"
       ]
     },
-    "surcharge": {
-      "type": "biginteger"
+    "booking": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::booking.booking",
+      "inversedBy": "payments"
     }
   }
 }

@@ -399,6 +399,10 @@ export interface ApiBookingBooking extends Struct.CollectionTypeSchema {
       'api::booking.booking'
     > &
       Schema.Attribute.Private;
+    payments: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::reservation.reservation'
+    >;
     prepayment: Schema.Attribute.BigInteger;
     publishedAt: Schema.Attribute.DateTime;
     reduction: Schema.Attribute.BigInteger;
@@ -456,6 +460,7 @@ export interface ApiReservationReservation extends Struct.CollectionTypeSchema {
   };
   attributes: {
     amount: Schema.Attribute.BigInteger;
+    booking: Schema.Attribute.Relation<'manyToOne', 'api::booking.booking'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -468,8 +473,6 @@ export interface ApiReservationReservation extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     payment_method: Schema.Attribute.Enumeration<['cast', 'banking']>;
     publishedAt: Schema.Attribute.DateTime;
-    rooms: Schema.Attribute.Relation<'manyToMany', 'api::room.room'>;
-    surcharge: Schema.Attribute.BigInteger;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -500,10 +503,6 @@ export interface ApiRoomRoom extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::room.room'> &
       Schema.Attribute.Private;
     note: Schema.Attribute.RichText;
-    payments: Schema.Attribute.Relation<
-      'manyToMany',
-      'api::reservation.reservation'
-    >;
     price_per_night: Schema.Attribute.BigInteger;
     publishedAt: Schema.Attribute.DateTime;
     room_number: Schema.Attribute.String;

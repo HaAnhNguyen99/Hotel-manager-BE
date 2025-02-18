@@ -62,6 +62,12 @@
         "Qua Đêm",
         "Ngày"
       ]
+    },
+    "payments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::reservation.reservation",
+      "mappedBy": "booking"
     }
   }
 }

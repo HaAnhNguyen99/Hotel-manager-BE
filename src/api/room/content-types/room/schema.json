@@ -35,12 +35,6 @@
       ],
       "default": "Available"
     },
-    "payments": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::reservation.reservation",
-      "mappedBy": "rooms"
-    },
     "floor": {
       "type": "integer"
     },
