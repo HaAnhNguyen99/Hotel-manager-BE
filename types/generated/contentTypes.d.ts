@@ -471,7 +471,7 @@ export interface ApiReservationReservation extends Struct.CollectionTypeSchema {
       'api::reservation.reservation'
     > &
       Schema.Attribute.Private;
-    payment_method: Schema.Attribute.Enumeration<['cast', 'banking']>;
+    payment_method: Schema.Attribute.Enumeration<['cash', 'banking']>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

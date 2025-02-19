@@ -21,7 +21,7 @@
     "payment_method": {
       "type": "enumeration",
       "enum": [
-        "cast",
+        "cash",
         "banking"
       ]
     },
