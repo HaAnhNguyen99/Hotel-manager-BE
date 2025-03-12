@@ -38,9 +38,6 @@
     "floor": {
       "type": "integer"
     },
-    "note": {
-      "type": "richtext"
-    },
     "price_per_night": {
       "type": "biginteger"
     },
@@ -55,6 +52,9 @@
       "relation": "oneToMany",
       "target": "api::booking.booking",
       "mappedBy": "room"
+    },
+    "note": {
+      "type": "blocks"
     }
   }
 }
