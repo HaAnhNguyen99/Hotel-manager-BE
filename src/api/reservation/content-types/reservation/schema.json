@@ -30,6 +30,9 @@
       "relation": "manyToOne",
       "target": "api::booking.booking",
       "inversedBy": "payments"
+    },
+    "note": {
+      "type": "blocks"
     }
   }
 }

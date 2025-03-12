@@ -471,6 +471,7 @@ export interface ApiReservationReservation extends Struct.CollectionTypeSchema {
       'api::reservation.reservation'
     > &
       Schema.Attribute.Private;
+    note: Schema.Attribute.Blocks;
     payment_method: Schema.Attribute.Enumeration<['cash', 'banking']>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -502,7 +503,7 @@ export interface ApiRoomRoom extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::room.room'> &
       Schema.Attribute.Private;
-    note: Schema.Attribute.RichText;
+    note: Schema.Attribute.Blocks;
     price_per_night: Schema.Attribute.BigInteger;
     publishedAt: Schema.Attribute.DateTime;
     room_number: Schema.Attribute.String;
