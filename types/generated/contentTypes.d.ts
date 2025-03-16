@@ -423,6 +423,7 @@ export interface ApiBookingBooking extends Struct.CollectionTypeSchema {
 export interface ApiHotelHotel extends Struct.CollectionTypeSchema {
   collectionName: 'hotels';
   info: {
+    description: '';
     displayName: 'Hotel';
     pluralName: 'hotels';
     singularName: 'hotel';
@@ -438,6 +439,7 @@ export interface ApiHotelHotel extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::hotel.hotel'> &
       Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     name: Schema.Attribute.String;
     phone: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
