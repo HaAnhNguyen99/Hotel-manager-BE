@@ -458,7 +458,7 @@ export interface ApiReservationReservation extends Struct.CollectionTypeSchema {
     singularName: 'reservation';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     amount: Schema.Attribute.BigInteger;
