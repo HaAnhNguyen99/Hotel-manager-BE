@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "safety_and_hygienes",
+  "info": {
+    "singularName": "safety-and-hygiene",
+    "pluralName": "safety-and-hygienes",
+    "displayName": "Safety and Hygiene"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}
