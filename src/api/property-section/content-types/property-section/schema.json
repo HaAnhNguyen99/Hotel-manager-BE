@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "property_sections",
+  "info": {
+    "singularName": "property-section",
+    "pluralName": "property-sections",
+    "displayName": "Property Section ",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "img": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
