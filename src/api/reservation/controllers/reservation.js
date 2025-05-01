@@ -281,7 +281,12 @@ module.exports = createCoreController(
                 }, // Tìm theo CCCD
               ],
             },
-            populate: { booking: true }, // Đảm bảo lấy dữ liệu booking
+            populate: {
+              booking: {
+                populate: ["room"],
+              },
+            },
+            // populate room
           }
         );
 
